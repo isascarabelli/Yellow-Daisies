@@ -1,2 +1,5 @@
-# Yellow-Daisies
-Aplicativo de organização diária e mensal utilizando a linguagem flutter.
+# Yellow Daisies 🏵️
+
+
+Em um mundo tão corrido onde todos buscam ao máximo a produtividade, o aplicativo Yellow Daisies oferece aos seus usuários a ferramenta ideal para planejamento e organização diário e mensal. A organização das tarefas diárias proporciona maior controle sobre tudo o que deve ser feito e aumenta a produtividade ao longo de um dia de trabalho. Um dos métodos mais eficientes para não esquecer nenhuma tarefa é manter um checklist com sua lista de tarefas diárias. Assim, é possível manter o tão desejado controle sobre suas atividades. Quem gerencia bem suas tarefas ao longo do dia alcança uma série de benefícios, como Compreensão de quais tarefas são urgentes, liberação de memórias das tarefas diárias, melhor visualização do que precisa ser feito e otimização na execução das tarefas. Organizar suas tarefas diárias também é essencial para ansiosos e overthinkers (pessoas que pensam em excesso), já que ao escrever o que deve ser feito, o cérebro dessas pessoas tem a sensação de que tudo está organizado e consegue parar de repassar cada função do dia. Além disso, é possível organizar todas as tarefas futuras com a função “My calendar”, que te lembra de eventos importantes, mesmo que esses aconteçam muito tempo depois. 
+
