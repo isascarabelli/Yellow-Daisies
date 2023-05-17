@@ -17,7 +17,10 @@ class _TelaSobreState extends State<TelaSobre> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(heigth*0.07),
         child: AppBar(
-        backgroundColor: Colors.yellow[600],
+          leading: const BackButton(
+              color: Colors.black
+          ),
+          backgroundColor: Colors.yellow[600],
         elevation: 0,
         )
       ),

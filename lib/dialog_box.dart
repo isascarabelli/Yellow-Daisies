@@ -25,6 +25,7 @@ class DialogBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
           TextField(
+            maxLines: null,
             controller: controller,
             decoration: const InputDecoration(
             border: OutlineInputBorder(), hintText: "Adicionar nova tarefa"

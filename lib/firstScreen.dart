@@ -3,7 +3,6 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/services.dart';
 import 'package:yd/home_page.dart';
 import 'package:yd/calendar.dart';
-import 'package:sized_icon_button/sized_icon_button.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -33,7 +32,7 @@ class _FirstScreenState extends State<FirstScreen> {
         child: CurvedNavigationBar(
           backgroundColor: Colors.cyan.shade200,
           color: Colors.yellow.shade600,
-          animationDuration: const Duration(milliseconds: 400),
+          animationDuration: const Duration(milliseconds: 0),
           index: _selectedIndex,
           onTap: (index){
             setState(() {

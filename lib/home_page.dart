@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:yd/database.dart';
 import 'package:yd/dialog_box.dart';
 import 'package:yd/todo_list.dart';
 import 'package:sized_icon_button/sized_icon_button.dart';
@@ -12,25 +14,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _myBox = Hive.box('mybox');
+
+  //toDoList
+  ToDoDataBase db = ToDoDataBase();
+
+  @override
+  void initState() {
+    if(_myBox.get("TODOLIST") == null){
+      db.toDoList = [];
+    }else{
+      db.loadData();
+    }
+    super.initState();
+  }
   //Text controller das tarefas
   final _controller = TextEditingController();
-  //listas das tarefas
-  List toDoList = [];
+
 
   //checkbox depois de pressionada
   void checkBoxChanged(bool? value, int index){
     setState(() {
-      toDoList[index][1] = !toDoList[index][1];
+      db.toDoList[index][1] = !db.toDoList[index][1];
     });
+    db.updateDataBase();
   }
 
   //save nova tarefa
   void saveNewTask(){
     setState(() {
-      toDoList.add([_controller.text, false]);
+      db.toDoList.add([_controller.text, false]);
       _controller.clear();
     });
     Navigator.of(context).pop();
+    db.updateDataBase();
   }
 
   //cancelar
@@ -56,8 +73,9 @@ class _HomePageState extends State<HomePage> {
   //deleta nova tarefa
   void deleteTask(int index){
     setState(() {
-      toDoList.removeAt(index);
+      db.toDoList.removeAt(index);
     });
+    db.updateDataBase();
   }
 
   @override
@@ -96,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                           ),
 
                           Padding(
-                            padding: EdgeInsets.only( right: width*0.08, top: width*0.06),
+                            padding: EdgeInsets.only( right: width*0.06, top: width*0.06),
                             child: SizedIconButton(
                                 color: Colors.cyan[400],
                                 icon: const Icon(
@@ -121,11 +139,11 @@ class _HomePageState extends State<HomePage> {
                     flex: 9,
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: toDoList.length,
+                        itemCount: db.toDoList.length,
                         itemBuilder: (context, index){
                           return ToDoList(
-                            taskName: toDoList[index][0],
-                            taskCompleted: toDoList[index][1],
+                            taskName: db.toDoList[index][0],
+                            taskCompleted: db.toDoList[index][1],
                             onChanged: (value) => checkBoxChanged(value, index),
                             deleteTask: (context) => deleteTask(index),
                           );
